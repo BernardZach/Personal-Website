@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import PorscheModel from './assets/Porscche.glb'; // Import the GLB file
+import Car from './assets/BMWM3E30.glb'; // Import the GLB file
 
 // Scene, Camera, Renderer
 const scene = new THREE.Scene();
@@ -15,11 +15,11 @@ let model;
 // GLTF Loader
 const loader = new GLTFLoader();
 loader.load(
-    PorscheModel, // Use the imported model path
+    Car, // Use the imported model path
     function(gltf) {
         model = gltf.scene;
         scene.add(model);
-        model.scale.set(0.5, 0.5, 0.5); // Adjust scale if necessary
+        model.scale.set(2, 2, 2); // Adjust scale if necessary
     },
     undefined,
     function(error) {
@@ -44,8 +44,8 @@ function animate() {
     
     // Rotate the model
     if (model) {
-        model.rotation.x += 0.01;
-        model.rotation.y += 0.01;
+        model.rotation.x += 0.005;
+        model.rotation.y += 0.005;
     }
     
     renderer.render(scene, camera);
