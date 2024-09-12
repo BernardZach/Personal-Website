@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import Car from './assets/BMWM3E30.glb'; // Import the GLB file
+import Car from './assets/websiteScene.glb'; // Import the GLB file
 
 // Scene, Camera, Renderer
 const scene = new THREE.Scene();
@@ -28,7 +28,10 @@ loader.load(
 );
 
 // Camera Position
-camera.position.z = 5;
+camera.position.z = 100; // Keep distance from the object
+camera.position.y = 50;  // Move the camera higher up
+camera.lookAt(0, 0, 0);  // Ensure the camera looks at the center (the model)
+
 
 // Lighting
 const ambientLight = new THREE.AmbientLight(0x404040); // Soft white light
@@ -44,8 +47,8 @@ function animate() {
     
     // Rotate the model
     if (model) {
-        model.rotation.x += 0.005;
-        model.rotation.y += 0.005;
+        model.rotation.y -= 0.005;
+        
     }
     
     renderer.render(scene, camera);
