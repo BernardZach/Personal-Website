@@ -3,7 +3,7 @@
 
 This is a personal website portfolio built with [Three.js](https://threejs.org/) and [Vite](https://vitejs.dev/). This project serves as a portfolio to demonstrate skills in software engineering, 3D graphics, web development, and interactive design.
 
-Find the website [here](www.zachbernard.com).
+Find the website [here](https://www.zachbernard.com).
 
 ## Table of Contents
 
