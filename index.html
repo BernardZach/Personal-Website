@@ -1,15 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Zach Bernard Personal Website</title>
-		<style>
-			body { margin: 0; }
-		</style>
-	</head>
-	<body>
-		<h1 style="margin: 0 ;color :yellow; background-color: black; text-align: center;" >UNDER CONSTRUCTION</h1>
-		<h2 style="margin: 0 ;color :whitesmoke; background-color: black; text-align: center;" > Yeah... I modeled this car in Blender :-P</h2>
-		<script type="module" src="main.js"></script>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zach Bernard - Personal Website</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .hero {
+            background: #f8f9fa;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.2em;
+            color: #555;
+        }
+        .hero .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .section {
+            padding: 20px;
+        }
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .ui.card {
+            margin: 20px;
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .menu-container {
+            margin-bottom: 40px;
+            background: #f0f0f0;
+            padding: 10px 0;
+            border-bottom: 2px solid #ccc;
+        }
+        .menu-container .ui.menu {
+            margin: 0 auto;
+        }
+        .section-content {
+            display: none;
+        }
+        .section-content.active {
+            display: block;
+        }
+        .download-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .download-link a {
+            font-size: 1.2em;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .download-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="ui container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <img src="assets\ZJat Cari's Wedding.jpg" alt="Profile Picture" class="profile-image">
+            <h1>Hi, I'm Zach Bernard!</h1>
+            <p>Full Stack Developer | AI Engineer | Creative Thinker</p>
+        </div>
+
+        <!-- Menu Section -->
+        <div class="menu-container">
+            <div class="ui three item menu">
+                <a class="active item" data-tab="about">About Me</a>
+                <a class="item" data-tab="experience">Experience</a>
+                <a class="item" data-tab="resume">Resume</a>
+            </div>
+
+            <!-- About Me Section -->
+            <div class="section section-content active" id="about">
+                <h2>About Me</h2>
+                <p>Hi, I'm Zach Bernard! I'm a passionate full-stack developer with experience in Python, Java, Azure Cloud, and more. I love building dynamic applications, solving complex problems, and creating meaningful user experiences.</p>
+            </div>
+
+            <!-- Experience Section -->
+            <div class="section section-content" id="experience">
+                <h2>Experience</h2>
+                <p>Here is an overview of my professional journey, highlighting the projects and roles that have shaped my skills and career path.</p>
+                <div class="download-link">
+                    <a href="assets\ZachBernardResume.pdf" download>Download My Resume</a>
+                </div>
+            </div>
+
+            <!-- Resume Section -->
+            <div class="section section-content" id="resume">
+                <h2>Resume</h2>
+                <p>Explore my detailed resume, including education, work experience, skills, and certifications.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Zach Bernard. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.ui.menu .item').on('click', function() {
+                $('.ui.menu .item').removeClass('active');
+                $(this).addClass('active');
+
+                const tab = $(this).data('tab');
+                $('.section-content').removeClass('active');
+                $('#' + tab).addClass('active');
+            });
+        });
+    </script>
+</body>
 </html>
