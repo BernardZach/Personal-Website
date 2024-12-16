@@ -1,4 +1,32 @@
-// scripts/components.js
+// Function to determine the active menu item
+function getActiveMenuItem() {
+    const currentPath = window.location.pathname; // e.g., "/index.html"
+    const currentHash = window.location.hash; // e.g., "#about"
+
+    if (currentPath.includes('index.html') || currentPath === '/') {
+        if (currentHash === '#about') return 'About Me';
+        if (currentHash === '#experience') return 'Experience';
+        if (currentHash === '#resume') return 'Resume';
+        return 'Home'; // Default to Home if no hash
+    }
+    if (currentPath.includes('blog.html')) return 'Blog Posts';
+    return ''; // Default fallback
+}
+
+// Function to dynamically set the active menu item for both menus
+function setActiveMenuItems() {
+    const activeItem = getActiveMenuItem();
+
+    // Update fixed menu
+    document.querySelectorAll('.fixed-menu .item').forEach((item) => {
+        item.classList.toggle('active', item.textContent.trim() === activeItem);
+    });
+
+    // Update secondary menu
+    document.querySelectorAll('.secondary-menu .item').forEach((item) => {
+        item.classList.toggle('active', item.textContent.trim() === activeItem);
+    });
+}
 
 // Function to load the Fixed Menu
 function loadFixedMenu() {
@@ -6,9 +34,9 @@ function loadFixedMenu() {
     <div class="ui large top fixed hidden menu">
         <div class="ui container">
             <a href="index.html" class="item">Home</a>
-            <a href="#about" class="item">About Me</a>
-            <a href="#experience" class="item">Experience</a>
-            <a href="#resume" class="item">Resume</a>
+            <a href="index.html#about" class="item">About Me</a>
+            <a href="index.html#experience" class="item">Experience</a>
+            <a href="index.html#resume" class="item">Resume</a>
             <a href="blog.html" class="item">Blog Posts</a>
             <div class="right menu">
                 <div class="item">
@@ -23,10 +51,10 @@ function loadFixedMenu() {
 function loadSecondaryMenu() {
     return `
     <div class="ui large secondary inverted pointing menu">
-        <a href="index.html" class="active item">Home</a>
-        <a href="#about" class="item">About Me</a>
-        <a href="#experience" class="item">Experience</a>
-        <a href="#resume" class="item">Resume</a>
+        <a href="index.html" class="item">Home</a>
+        <a href="index.html#about" class="item">About Me</a>
+        <a href="index.html#experience" class="item">Experience</a>
+        <a href="index.html#resume" class="item">Resume</a>
         <a href="blog.html" class="item">Blog Posts</a>
         <div class="right item">
             <a href="../../public/assets/ZachBernardResume.pdf" download class="ui inverted button">Download Resume</a>
@@ -57,21 +85,35 @@ function loadComponents() {
 
     // Initialize scrolling behavior after content is loaded
     initializeScrollingBehavior();
+
+    // Set active menu items on initial load
+    setActiveMenuItems();
 }
 
 // Function to initialize scrolling behavior for the menu
 function initializeScrollingBehavior() {
-    $('.masthead').visibility({
-        once: false,
-        onBottomPassed: function () {
-            $('.fixed.menu').transition('fade in');
-        },
-        onBottomPassedReverse: function () {
-            $('.fixed.menu').transition('fade out');
-        }
-    });
+    const masthead = document.querySelector('.masthead') || document.querySelector('.masthead-short');
 
+    if (masthead) {
+        $(masthead).visibility({
+            once: false,
+            onBottomPassed: function () {
+                $('.fixed.menu').transition('fade in');
+            },
+            onBottomPassedReverse: function () {
+                $('.fixed.menu').transition('fade out');
+            }
+        });
+    }
+
+    // Attach sidebar behavior
+    $('.ui.sidebar').sidebar('attach events', '.toc.item');
 }
+
+// Listen for hash changes to dynamically update active menu items
+window.addEventListener('hashchange', () => {
+    setActiveMenuItems();
+});
 
 // Load components on page load
 document.addEventListener('DOMContentLoaded', loadComponents);

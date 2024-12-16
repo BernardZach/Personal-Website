@@ -11,6 +11,14 @@ body {
 .masthead .ui.header {
     margin-bottom: 0; /* Ensure no extra margin below the header */
 }
+.masthead-short.segment {
+    min-height: 200px; /* Shorter height for non-home pages */
+    padding: 1em 0em;
+}
+
+.masthead-short .ui.header {
+    margin-bottom: 0; /* Maintain consistent header margin */
+}
 .masthead .profile-image {
     margin: 25px;
     height: 350px;
@@ -37,4 +45,25 @@ body {
 }
 .ui.text.container{
     margin: 25px
+}
+/* Ensures the entire page takes up at least the full viewport height */
+html, body {
+    height: 100%;
+}
+
+/* The flex container to allow content and footer positioning */
+.pusher {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+}
+
+/* The main content area should grow and take up available space */
+.pusher > .content {
+    flex: 1; /* Fills remaining space between header and footer */
+}
+
+/* Footer styling */
+.ui.inverted.vertical.footer.segment {
+    margin-top: auto; /* Pushes footer to the bottom */
 }
