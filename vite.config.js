@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: './',
-
+  base: './', // Ensures correct asset paths
   build: {
     outDir: 'dist', // Output directory for production builds
     assetsDir: 'assets', // Directory for static assets relative to outDir
@@ -12,7 +11,4 @@ export default defineConfig({
       },
     },
   },
-
-  // Explicitly include all files from 'static' directory
-  assetsInclude: ["assets/**"],
 });
