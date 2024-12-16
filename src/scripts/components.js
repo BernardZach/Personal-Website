@@ -12,7 +12,7 @@ function loadFixedMenu() {
             <a href="blog.html" class="item">Blog Posts</a>
             <div class="right menu">
                 <div class="item">
-                    <a href="assets/ZachBernardResume.pdf" download class="ui primary button">Download Resume</a>
+                    <a href="../../public/assets/ZachBernardResume.pdf" download class="ui primary button">Download Resume</a>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@ function loadSecondaryMenu() {
         <a href="#resume" class="item">Resume</a>
         <a href="blog.html" class="item">Blog Posts</a>
         <div class="right item">
-            <a href="assets/ZachBernardResume.pdf" download class="ui inverted button">Download Resume</a>
+            <a href="../../public/assets/ZachBernardResume.pdf" download class="ui inverted button">Download Resume</a>
         </div>
     </div>`;
 }

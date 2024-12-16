@@ -3,11 +3,11 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   base: './', // Ensures correct asset paths
   build: {
-    outDir: 'dist', // Output directory for production builds
-    assetsDir: 'assets', // Directory for static assets relative to outDir
+    outDir: 'dist', // Output directory
+    assetsDir: 'public/assets', // Static assets directory
     rollupOptions: {
       input: {
-        main: 'index.html', // Entry point of your application
+        main: './src/pages/index.html',
       },
     },
   },
