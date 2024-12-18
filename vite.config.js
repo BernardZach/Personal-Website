@@ -1,18 +1,16 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: './',
-
+  base: './', // Ensures correct asset paths
   build: {
-    outDir: 'dist', // Output directory for production builds
-    assetsDir: 'assets', // Directory for static assets relative to outDir
+    outDir: 'dist', // Output directory
+    assetsDir: 'public/assets', // Static assets directory
     rollupOptions: {
       input: {
-        main: 'index.html', // Entry point of your application
+        main: './src/pages/index.html',
+        blog: './src/pages/blog.html',
+        weddingblog: './src/pages/blog-post1.html'
       },
     },
   },
-
-  // Explicitly include all files from 'static' directory
-  assetsInclude: ["assets/**"],
 });
