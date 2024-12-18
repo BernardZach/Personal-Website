@@ -9,6 +9,7 @@ export default defineConfig({
       input: {
         main: './src/pages/index.html',
         blog: './src/pages/blog.html',
+        weddingblog: './src/pages/blog-post1.html'
       },
     },
   },
