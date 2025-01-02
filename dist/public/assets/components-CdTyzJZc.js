@@ -28,7 +28,9 @@
             <div class="ui stackable inverted divided equal height stackable grid">
                 <div class="seven wide column">
                     <h4 class="ui inverted header">Contact</h4>
-                    <p>Zach Bernard | bernardzach00@gmail.com | (270) 585-7616</p>
+                    <p>Zach Bernard </p>
+                    <p>bernardzach00@gmail.com </p>
+                    <p>(270) 585-7616 </p>
                 </div>
             </div>
         </div>
