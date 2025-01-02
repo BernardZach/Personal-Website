@@ -80,19 +80,10 @@ If you are deploying to GitHub Pages, make sure the `dist` folder is properly se
 To make changes to the project:
 
 1. Open the project in your preferred code editor.
+2. Make a new branch
 
-2. Make changes to the source files located in the `src` folder. You can edit existing components or add new ones as needed.
+3. Make changes. You can edit existing components or add new ones as needed.
 
-3. **Start the development server**:
 
-   To see your changes live, start the Vite development server:
-
-   ```bash
-   npm run dev
-   ```
-
-   This will start a local development server (usually at `http://localhost:3000`) where you can view your changes in real-time.
-
-4. After making changes, build and deploy the updated version by following the [Building and Deploying](#building-and-deploying) steps.
-
-You can now save this content as a `README.md` file in the root directory of your GitHub repository to provide clear instructions and information about your project.
+7. After making changes, build and deploy the updated version by following the [Building and Deploying](#building-and-deploying) steps.
+8. Open a new PR, once reviewed and actions run, upload DNS to gh-pages in settings. make sure to deploy from gh-pages branch
