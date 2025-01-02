@@ -184,3 +184,45 @@ window.addEventListener('hashchange', () => {
 
 // Load components on page load
 document.addEventListener('DOMContentLoaded', loadComponents);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerButton = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    // Load mobile menu content
+    function loadMobileMenuContent() {
+        mobileMenu.innerHTML = `
+            <a href="/index.html">Home</a>
+            <a href="/index.html#about">About Me</a>
+            <a href="/index.html#experience">Experience</a>
+            <a href="/index.html#resume">Resume</a>
+            <a href="/src/pages/blog.html">Blog Posts</a>
+            <a href="../../public/assets/ZachBernardResume.pdf" download>Download Resume</a>
+        `;
+    }
+
+    // Toggle mobile menu visibility
+    function toggleMobileMenu() {
+        mobileMenu.classList.toggle('open');
+    }
+
+    // Show/hide menus based on screen width
+    function manageMenusOnResize() {
+        if (window.innerWidth <= 768) {
+            hamburgerButton.style.display = 'block'; // Show hamburger button
+            mobileMenu.style.display = 'flex'; // Prepare mobile menu
+        } else {
+            hamburgerButton.style.display = 'none'; // Hide hamburger button
+            mobileMenu.style.display = 'none'; // Hide mobile menu
+            mobileMenu.classList.remove('open'); // Ensure menu is closed
+        }
+    }
+
+    // Event listeners
+    hamburgerButton.addEventListener('click', toggleMobileMenu);
+    window.addEventListener('resize', manageMenusOnResize);
+
+    // Initialize
+    loadMobileMenuContent();
+    manageMenusOnResize(); // Ensure correct menu visibility on load
+});
