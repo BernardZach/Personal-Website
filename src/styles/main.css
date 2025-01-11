@@ -117,6 +117,21 @@ html, body {
     background: #444;
 }
 
+.scaled-image {
+    width: 75%; 
+    height: auto; 
+    border-top: 10px solid #cccccc00;
+    border-bottom: 10px solid #cccccc00;
+    margin: 20px 0;
+}
+
+.ui.cards .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
 /* Responsive styles */
 @media (max-width: 768px) {
     .hamburger {
