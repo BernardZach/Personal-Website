@@ -7,9 +7,9 @@ export default defineConfig({
     assetsDir: 'public/assets', // Static assets directory
     rollupOptions: {
       input: {
-        main: 'index.html',
-        blog: './src/pages/blog.html',
-        weddingblog: './src/pages/blog-post1.html'
+        main: './src/pages/main/index.html',
+        blog: './src/pages/blog/index.html',
+        weddingblog: './src/pages/blog-post1/index.html'
       },
     },
   },
