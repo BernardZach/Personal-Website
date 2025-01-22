@@ -11,6 +11,11 @@ export default defineConfig({
         blog: './src/pages/blog/index.html',
         weddingblog: './src/pages/blog-post1/index.html'
       },
+      output: {
+        // Ensure 'main' becomes the default root file by renaming it to 'index.html'
+        entryFileNames: (chunkInfo) =>
+          chunkInfo.name === 'main' ? 'index.html' : `${chunkInfo.name}/index.html`,
+      },
     },
   },
 });
