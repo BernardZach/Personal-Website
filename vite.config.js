@@ -9,7 +9,8 @@ export default defineConfig({
       input: {
         main: 'index.html',
         blog: './blog/index.html',
-        weddingblog: './blog-post1/index.html'
+        weddingblog: './blog-post1/index.html',
+        pdf: './static/ZachBernardResume.pdf'
       },
     }
   },
