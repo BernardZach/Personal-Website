@@ -39,10 +39,10 @@ function loadFixedMenu() {
             <a href="/index.html#about" class="item">About Me</a>
             <a href="/index.html#experience" class="item">Experience</a>
             <a href="/index.html#resume" class="item">Resume</a>
-            <a href="/blog" class="item">Blog Posts</a>
+            <a href="/src/pages/blog" class="item">Blog Posts</a>
             <div class="right menu">
                 <div class="item">
-                    <a href="/static/ZachBernardResume.pdf" download class="ui primary button">Download Resume</a>
+                    <a href="/public/assets/ZachBernardResume.pdf" download class="ui primary button">Download Resume</a>
                 </div>
             </div>
         </div>
@@ -57,9 +57,9 @@ function loadSecondaryMenu() {
         <a href="/index.html#about" class="item">About Me</a>
         <a href="/index.html#experience" class="item">Experience</a>
         <a href="/index.html#resume" class="item">Resume</a>
-        <a href="/blog" class="item">Blog Posts</a>
+        <a href="/src/pages/blog" class="item">Blog Posts</a>
         <div class="right item">
-            <a href="/static/ZachBernardResume.pdf" download class="ui inverted button">Download Resume</a>
+            <a href="/public/assets/ZachBernardResume.pdf" download class="ui inverted button">Download Resume</a>
         </div>
     </div>`;
 }
@@ -198,8 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <a href="/index.html#about" class="item">About Me</a>
             <a href="/index.html#experience" class="item">Experience</a>
             <a href="/index.html#resume" class="item">Resume</a>
-            <a href="/blog" class="item">Blog Posts</a>
-            <a href="/static/ZachBernardResume.pdf" download>Download Resume</a>
+            <a href="/src/pages/blog" class="item">Blog Posts</a>
+            <a href="/public/assets/ZachBernardResume.pdf" download>Download Resume</a>
         `;
     }
 
