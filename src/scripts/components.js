@@ -35,10 +35,10 @@ function loadFixedMenu() {
     return `
     <div class="ui large top fixed hidden menu">
         <div class="ui container">
-            <a href="/index.html" class="item">Home</a>
-            <a href="/index.html#about" class="item">About Me</a>
-            <a href="/index.html#experience" class="item">Experience</a>
-            <a href="/index.html#resume" class="item">Resume</a>
+            <a href="/" class="item">Home</a>
+            <a href="/#about" class="item">About Me</a>
+            <a href="/#experience" class="item">Experience</a>
+            <a href="/#resume" class="item">Resume</a>
             <a href="/blog" class="item">Blog Posts</a>
             <div class="right menu">
                 <div class="item">
@@ -53,13 +53,15 @@ function loadFixedMenu() {
 function loadSecondaryMenu() {
     return `
     <div class="ui large secondary inverted pointing menu">
-        <a href="/index.html" class="item">Home</a>
-        <a href="/index.html#about" class="item">About Me</a>
-        <a href="/index.html#experience" class="item">Experience</a>
-        <a href="/index.html#resume" class="item">Resume</a>
+        <a href="/" class="item">Home</a>
+        <a href="/#about" class="item">About Me</a>
+        <a href="/#experience" class="item">Experience</a>
+        <a href="/#resume" class="item">Resume</a>
         <a href="/blog" class="item">Blog Posts</a>
-        <div class="right item">
-            <a href="/static/ZachBernardResume.pdf" download class="ui inverted button">Download Resume</a>
+        <div class="right menu">
+            <div class="item">
+                <a href="/static/ZachBernardResume.pdf" download class="ui primary button">Download Resume</a>
+            </div>
         </div>
     </div>`;
 }
@@ -194,10 +196,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load mobile menu content
     function loadMobileMenuContent() {
         mobileMenu.innerHTML = `
-            <a href="/index.html" class="item">Home</a>
-            <a href="/index.html#about" class="item">About Me</a>
-            <a href="/index.html#experience" class="item">Experience</a>
-            <a href="/index.html#resume" class="item">Resume</a>
+            <a href="/" class="item">Home</a>
+            <a href="/#about" class="item">About Me</a>
+            <a href="/#experience" class="item">Experience</a>
+            <a href="/#resume" class="item">Resume</a>
             <a href="/blog" class="item">Blog Posts</a>
             <a href="/static/ZachBernardResume.pdf" download>Download Resume</a>
         `;
