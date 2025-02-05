@@ -38,7 +38,7 @@ function loadFixedMenu() {
             <a href="/" class="item">Home</a>
             <a href="/#about" class="item">About Me</a>
             <a href="/#experience" class="item">Experience</a>
-            <a href="/#resume" class="item">Resume</a>
+            <a href="/#skills" class="item">Skills</a>
             <a href="/blog" class="item">Blog Posts</a>
             <div class="right menu">
                 <div class="item">
@@ -56,7 +56,7 @@ function loadSecondaryMenu() {
         <a href="/" class="item">Home</a>
         <a href="/#about" class="item">About Me</a>
         <a href="/#experience" class="item">Experience</a>
-        <a href="/#resume" class="item">Resume</a>
+        <a href="/#skills" class="item">Skills</a>
         <a href="/blog" class="item">Blog Posts</a>
         <div class="right menu">
             <div class="item">
