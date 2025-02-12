@@ -10,7 +10,7 @@ export default defineConfig({
         main: 'index.html',
         blog: './blog/index.html',
         weddingblog: './blog-post1/index.html',
-        pdf: './static/ZachBernardResume.pdf'
+        pdf: './public/ZachBernardResume.pdf'
       },
     }
   },

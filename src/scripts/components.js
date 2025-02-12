@@ -42,7 +42,7 @@ function loadFixedMenu() {
             <a href="/blog" class="item">Blog Posts</a>
             <div class="right menu">
                 <div class="item">
-                    <a href="/static/ZachBernardResume.pdf" download class="ui primary button">Download Resume</a>
+                    <a href="./ZachBernardResume.pdf" download class="ui primary button">Download Resume</a>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@ function loadSecondaryMenu() {
         <a href="/blog" class="item">Blog Posts</a>
         <div class="right menu">
             <div class="item">
-                <a href="/static/ZachBernardResume.pdf" download class="ui primary button">Download Resume</a>
+                <a href="./ZachBernardResume.pdf" download class="ui primary button">Download Resume</a>
             </div>
         </div>
     </div>`;
@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <a href="/#experience" class="item">Experience</a>
             <a href="/#resume" class="item">Resume</a>
             <a href="/blog" class="item">Blog Posts</a>
-            <a href="/static/ZachBernardResume.pdf" download>Download Resume</a>
+            <a href="./ZachBernardResume.pdf" download>Download Resume</a>
         `;
     }
 
