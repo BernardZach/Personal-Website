@@ -1,0 +1,81 @@
+/* ===== Layout variables (tweak these) ===== */
+:root {
+  --page-max: 1200px;      /* total max width of the whole page frame */
+  --gutter: 12px;          /* gap between columns */
+  --left-w: 20%;           /* left column width (desktop) */
+  --right-w: 20%;          /* right column width (desktop) */
+  --rail-min: 220px;       /* min sidebar width so it won't collapse */
+  --rail-max: 300px;       /* optional max sidebar width */
+  --edge-pad: 10px;        /* inner padding around the grid */
+}
+
+/* ===== Page frame (centers and visually contains everything) ===== */
+.page {
+  max-width: var(--page-max);
+  margin: 12px auto;
+  padding: var(--edge-pad);
+  border: 3px double #444;
+  background: #ffffffcc;             /* put your panel bg here */
+  box-shadow: 0 0 0 4px #d7d7ff, 0 0 0 8px #aaa;
+  overflow: clip;                    /* visually contain children */
+}
+
+/* ===== 3-column grid ===== */
+.layout {
+  display: grid;
+  grid-template-columns:
+    minmax(var(--rail-min), clamp(var(--left-w), 22vw, var(--rail-max)))
+    1fr
+    minmax(var(--rail-min), clamp(var(--right-w), 22vw, var(--rail-max)));
+  gap: var(--gutter);
+}
+
+/* Identify columns (optional class names) */
+.col-left  { }
+.col-main  { }
+.col-right { }
+
+/* ===== Sticky rails (nice frame feeling) ===== */
+.col-left,
+.col-right {
+  position: sticky;
+  top: 10px;               /* distance from top when sticking */
+  align-self: start;
+  height: fit-content;     /* shrink-wrap to content so sticky works */
+}
+
+/* ===== Panels (sidebars + main) ===== */
+.panel {
+  background: #fff;
+  border: 3px ridge #9aa;
+  padding: 14px;
+  contain: content;         /* paint/layout containment for perf */
+  content-visibility: auto; /* skip rendering when off-screen */
+}
+
+/* ===== Make content itself constrained inside main if desired ===== */
+.col-main .content {
+  max-width: 68ch;          /* readable line length */
+  margin-inline: auto;
+}
+
+/* ===== Mobile: stack columns, keep order center → left → right ===== */
+@media (max-width: 760px) {
+  .page {
+    margin: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+  }
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .col-main  { order: 1; }
+  .col-left  { order: 2; }
+  .col-right { order: 3; }
+
+  .col-left,
+  .col-right {
+    position: static;       /* disable sticky on small screens */
+  }
+}
