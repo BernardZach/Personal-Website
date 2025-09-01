@@ -53,6 +53,25 @@
   content-visibility: auto; /* skip rendering when off-screen */
 }
 
+/* ===== Sub-panels / sections inside a panel ===== */
+.panel-section {
+  background: #fdfdfd;            /* slightly lighter than panel */
+  border: 2px solid #bbb;         /* thinner border than panel */
+  padding: 10px;
+  margin: 10px 0;                 /* space between sections */
+  border-radius: 4px;             /* optional: soften edges */
+  box-shadow: inset 0 0 4px #ccc; /* subtle inset depth */
+}
+
+/* optional heading style inside sections */
+.panel-section h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  border-bottom: 1px dashed #aaa;
+  padding-bottom: 4px;
+}
+
+
 /* ===== Make content itself constrained inside main if desired ===== */
 .col-main .content {
   max-width: 68ch;          /* readable line length */
