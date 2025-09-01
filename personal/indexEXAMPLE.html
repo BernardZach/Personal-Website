@@ -1,0 +1,254 @@
+    <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zach’s Little Corner of the Web</title>
+
+  <!-- Favicon made from emoji (retro trick) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%8C%9F%3C/text%3E%3C/svg%3E" />
+
+  <style>
+    /* ===== Base reset (kept tiny like old sites) ===== */
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      color: #111;
+      /* Repeatable background like tiled JPGs/GIFs of yesteryear */
+      background:
+        repeating-linear-gradient(45deg, #fefefe 0 14px, #f6f6f6 14px 28px),
+        radial-gradient(#fff 35%, #f3f3ff 36%);
+      image-rendering: pixelated; /* lean into crunchy vibes */
+      font: 14px/1.4 "Verdana","Geneva","Tahoma",system-ui,-apple-system,sans-serif;
+    }
+
+    /* ===== Page frame (classic fixed width + sidebar) ===== */
+    .page {
+      max-width: 940px; /* 800–980px was common */
+      margin: 12px auto;
+      border: 3px double #444;
+      background: #ffffffcc;
+      box-shadow: 0 0 0 4px #d7d7ff, 0 0 0 8px #aaa;
+    }
+
+    .topbar {
+      position: relative;
+      padding: 6px 10px;
+      background: linear-gradient(#4e55ff, #2e36c9);
+      color: #fff;
+      border-bottom: 3px double #fff;
+      text-shadow: 0 1px 0 #0006;
+    }
+
+    /* CSS marquee (no <marquee> tag needed) */
+    .ticker {
+      overflow: hidden;
+      white-space: nowrap;
+      border: 2px dashed #fff8;
+      background: #0002;
+      padding: 4px 0;
+      font-weight: bold;
+    }
+    .ticker span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll 18s linear infinite;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .wrap {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 12px;
+      padding: 10px;
+    }
+
+    /* ===== Sidebar ===== */
+    aside {
+      background: #fff;
+      border: 3px groove #9aa;
+      padding: 10px;
+    }
+    aside h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      background: #eef;
+      border: 2px inset #99a;
+      padding: 4px 6px;
+    }
+    .nav {
+      list-style: square inside;
+      padding: 0;
+      margin: 0 0 10px 0;
+    }
+    .nav a { color: #233; text-decoration: none; }
+    .nav a:hover { text-decoration: underline; }
+
+    .badges {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .badge {
+      display: inline-grid; place-items: center;
+      height: 31px; width: 88px; /* Classic 88x31 badge size */
+      border: 2px outset #222;
+      background: #000; color: #0f0;
+      font: 700 10px/1 monospace;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      box-shadow: inset 0 0 0 2px #060;
+    }
+
+    /* ===== Main ===== */
+    main {
+      background: #fff;
+      border: 3px ridge #9aa;
+      padding: 14px;
+      min-height: 420px;
+    }
+    h1 {
+      font-size: 26px;
+      margin: 4px 0 8px;
+      text-shadow: 0 1px 0 #fff;
+    }
+    h2 { font-size: 18px; margin-top: 18px; }
+    .blink { animation: blink .9s steps(1,end) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .notes {
+      background: #ffffe8;
+      border: 2px dashed #bb5;
+      padding: 10px;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: #242424; color: #ddd;
+      border-top: 3px double #fff;
+      padding: 10px;
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 12px;
+      font-size: 12px;
+    }
+
+    /* Accessibility niceties */
+    a:focus { outline: 2px dashed #f0f; outline-offset: 2px; }
+    @media (max-width: 760px) {
+      .wrap { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page" role="document">
+    <header class="topbar">
+      <div class="ticker" aria-live="polite">
+        <span>Welcome to Zach’s Little Corner — handcrafted HTML and vibes — now with a faux hit counter, a CSS marquee, and tasteful blink text ✨</span>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <aside>
+        <h3>Navigation</h3>
+        <ul class="nav">
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#updates">Site Updates</a></li>
+          <li><a href="#shrines">Shrines</a></li>
+          <li><a href="#blogroll">Blogroll</a></li>
+          <li><a href="#guestbook">Guestbook</a></li>
+        </ul>
+
+        <h3>Webring & Buttons</h3>
+        <div class="badges" aria-label="88x31 style buttons">
+          <a class="badge" href="#">HTML 4EVER</a>
+          <a class="badge" href="#">NO JS BLD</a>
+          <a class="badge" href="#">VALID-ish</a>
+          <a class="badge" href="#">CSS!!</a>
+        </div>
+
+        <h3>Stats</h3>
+        <p>Views: <strong id="views">0</strong></p>
+        <p>Last visit: <span id="last">first time here!</span></p>
+      </aside>
+
+      <main>
+        <h1 id="about">Hi, I’m Zach <span class="blink">_</span></h1>
+        <p>
+          This is my personal, less‑professional nook—built the old‑school way with
+          HTML + CSS (+ a pinch of JavaScript). Expect experiments, little logs,
+          and assorted curios.
+        </p>
+
+        <section id="updates">
+          <h2>Site Updates</h2>
+          <ul>
+            <li><strong>2025‑08‑31:</strong> Launched the new corner with a CSS marquee, faux hit counter, and 88×31‑style buttons.</li>
+            <li><strong>2025‑08‑30:</strong> Sketched layout (sidebar + content) with crunchy gradients.</li>
+          </ul>
+        </section>
+
+        <section id="shrines">
+          <h2>Shrines</h2>
+          <div class="notes">
+            Little tribute pages were a thing: a page just for a band, a tool,
+            a movie, a vibe. Make mini pages like <code>shrines/whatever.html</code>
+            and link them here.
+          </div>
+        </section>
+
+        <section id="blogroll">
+          <h2>Blogroll</h2>
+          <p>Link out to friends & sites you like. That’s half the fun.</p>
+          <ul>
+            <li><a href="https://neocities.org" target="_blank" rel="noopener">Neocities</a></li>
+            <li><a href="https://dangeru.us/" target="_blank" rel="noopener">DIY net things</a></li>
+          </ul>
+        </section>
+
+        <section id="guestbook">
+          <h2>Guestbook</h2>
+          <p>
+            Classic guestbooks used CGI scripts. For now, email me a note:
+            <a href="mailto:bernardzach00@gmail.com?subject=Guestbook%20entry">sign the guestbook</a>.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <div>
+        <strong>&copy; <span id="year"></span> Zach Bernard</strong> — "Best viewed at 800×600" 😉
+      </div>
+      <div>Hosted on <em>your</em> subdomain • plain HTML/CSS/JS • no build tools</div>
+    </footer>
+  </div>
+
+  <script>
+    // Faux hit counter & last-visit (local only; no tracking)
+    (function() {
+      const viewsEl = document.getElementById('views');
+      const lastEl = document.getElementById('last');
+      const yearEl = document.getElementById('year');
+      yearEl.textContent = new Date().getFullYear();
+
+      const keyViews = 'zach_corner_views';
+      const keyLast = 'zach_corner_last';
+      const views = parseInt(localStorage.getItem(keyViews) || '0', 10) + 1;
+      localStorage.setItem(keyViews, String(views));
+      viewsEl.textContent = views.toLocaleString();
+
+      const last = localStorage.getItem(keyLast);
+      if (last) {
+        const d = new Date(last);
+        lastEl.textContent = d.toLocaleString();
+      }
+      localStorage.setItem(keyLast, new Date().toISOString());
+    })();
+  </script>
+</body>
+</html>
