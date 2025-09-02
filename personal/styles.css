@@ -1,100 +1,93 @@
-/* ===== Layout variables (tweak these) ===== */
-:root {
-  --page-max: 1200px;      /* total max width of the whole page frame */
-  --gutter: 12px;          /* gap between columns */
-  --left-w: 20%;           /* left column width (desktop) */
-  --right-w: 20%;          /* right column width (desktop) */
-  --rail-min: 220px;       /* min sidebar width so it won't collapse */
-  --rail-max: 300px;       /* optional max sidebar width */
-  --edge-pad: 10px;        /* inner padding around the grid */
+/* === Tiled background system === */
+:root{
+  --russian-violet:#231942;
+  --ultra-violet:#5e548e;
+  --african-violet:#9f86c0;
+  --lilac:#be95c4;
+  --pink-lavender:#e0b1cb;
+
+  /* tweakable light/shadow */
+  --highlight: var(--pink-lavender);
+  --midtone:   var(--african-violet);
+  --shadow:    var(--russian-violet);
 }
 
-/* ===== Page frame (centers and visually contains everything) ===== */
-.page {
-  max-width: var(--page-max);
-  margin: 12px auto;
-  padding: var(--edge-pad);
-  border: 3px double #444;
-  background: #ffffffcc;             /* put your panel bg here */
-  box-shadow: 0 0 0 4px #d7d7ff, 0 0 0 8px #aaa;
-  overflow: clip;                    /* visually contain children */
+/* tiled GIF background */
+body.tiled-bg {
+  will-change: background-position;
+  background-image: var(--tile-url);
+  background-repeat: repeat;
+  background-size: var(--tile-size) var(--tile-size);
+  background-position: 0 0;
+  background-attachment: scroll;
+  image-rendering: pixelated;
 }
 
-/* ===== Sub-panels / sections inside a panel ===== */
-.panel-section {
-  background: #fdfdfd;            /* slightly lighter than panel */
-  border: 2px solid #bbb;         /* thinner border than panel */
-  padding: 10px;
-  margin: 10px 0;                 /* space between sections */
-  border-radius: 4px;             /* optional: soften edges */
-  box-shadow: inset 0 0 4px #ccc; /* subtle inset depth */
+/* dim overlay */
+.tiled-overlay::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.35));
 }
 
-/* optional heading style inside sections */
-.panel-section h3 {
-  margin-top: 0;
-  font-size: 1rem;
-  border-bottom: 1px dashed #aaa;
-  padding-bottom: 4px;
-}
-
-
-/* ===== 3-column grid ===== */
-.layout {
-  display: grid;
-  grid-template-columns:
-    minmax(var(--rail-min), clamp(var(--left-w), 22vw, var(--rail-max)))
-    1fr
-    minmax(var(--rail-min), clamp(var(--right-w), 22vw, var(--rail-max)));
-  gap: var(--gutter);
-}
-
-/* Identify columns (optional class names) */
-.col-left  { }
-.col-main  { }
-.col-right { }
-
-/* ===== Sticky rails (nice frame feeling) ===== */
-.col-left,
-.col-right {
-  position: sticky;
-  top: 10px;               /* distance from top when sticking */
-  align-self: start;
-  height: fit-content;     /* shrink-wrap to content so sticky works */
-}
-
-/* ===== Panels (sidebars + main) ===== */
-.panel {
-  background: #fff;
-  border: 3px ridge #9aa;
-  padding: 14px;
-  contain: content;         /* paint/layout containment for perf */
-  content-visibility: auto; /* skip rendering when off-screen */
-}
-
-/* ===== Make content itself constrained inside main if desired ===== */
-.col-main .content {
-  max-width: 68ch;          /* readable line length */
-  margin-inline: auto;
-}
-
-/* ===== Mobile: stack columns, keep order center → left → right ===== */
-@media (max-width: 760px) {
-  .page {
-    margin: 0;
-    border-left: 0;
-    border-right: 0;
-    border-radius: 0;
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --tile-url: url("./assets/large-sword.gif");
   }
-  .layout {
-    grid-template-columns: 1fr;
-  }
-  .col-main  { order: 1; }
-  .col-left  { order: 2; }
-  .col-right { order: 3; }
+}
 
-  .col-left,
-  .col-right {
-    position: static;       /* disable sticky on small screens */
-  }
+/* === Title styles === */
+.title-banner{
+  text-align:center;
+  margin: 2.75rem auto 2rem;
+}
+
+/* === Pixelated Fantasy Title Upgrade === */
+.fantasy-title {
+  font-family: 'UnifrakturCook', cursive !important;
+  font-weight: 700;
+  font-size: clamp(56px, 10.5vw, 140px);
+  line-height: 1;
+  display: inline-block;
+
+  /* extra spacing so letters don’t collide */
+  letter-spacing: 0.08em;
+  font-kerning: none;
+  font-feature-settings: "kern" 0;
+
+  /* gradient fill */
+  background-image: linear-gradient(
+    180deg,
+    var(--pink-lavender) 0%,
+    var(--african-violet) 55%,
+    var(--ultra-violet) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* thick outline */
+  -webkit-text-stroke: 3px var(--lilac);
+  paint-order: stroke fill;
+
+  /* shadow “extrusion” in blocky steps */
+  text-shadow:
+    -2px -2px 0 var(--pink-lavender),
+    -3px -3px 0 var(--african-violet),
+     2px  2px 0 var(--ultra-violet),
+     3px  3px 0 var(--ultra-violet),
+     4px  4px 0 var(--russian-violet),
+     5px  5px 0 var(--russian-violet),
+     6px  6px 0 var(--russian-violet);
+}
+
+/* ===== Pixelation effect ===== */
+.fantasy-title.pixelated {
+  image-rendering: pixelated;      /* force pixel rendering */
+  -webkit-font-smoothing: none;    /* stop smoothing in WebKit */
+  -moz-osx-font-smoothing: none;   /* stop smoothing in Firefox/macOS */
+  font-smooth: never;              /* legacy */
+  filter: contrast(1.3) saturate(1.1) brightness(0.95);
 }
