@@ -41,14 +41,14 @@ body.tiled-bg {
 /* === Title styles === */
 .title-banner{
   text-align:center;
-  margin: 2.75rem auto 2rem;
+  margin: 2rem auto 2rem;
 }
 
 /* === Pixelated Fantasy Title Upgrade === */
 .fantasy-title {
   font-family: 'UnifrakturCook', cursive !important;
   font-weight: 700;
-  font-size: clamp(56px, 10.5vw, 140px);
+  font-size: clamp(56px, 10.5vw, 14px);
   line-height: 1;
   display: inline-block;
 
@@ -91,3 +91,22 @@ body.tiled-bg {
   font-smooth: never;              /* legacy */
   filter: contrast(1.3) saturate(1.1) brightness(0.95);
 }
+.title-banner {
+  text-align: center;
+  margin: 2.5rem auto;
+}
+
+.title-pixel {
+  /* Start with a small source image (200–300px wide export works best) */
+  width: 800px;         /* scale up larger than original */
+  height: auto;
+
+  /* Force pixelation */
+  image-rendering: pixelated;   /* Chrome, Firefox */
+  image-rendering: crisp-edges; /* Safari/Edge fallback */
+  image-rendering: -moz-crisp-edges; /* legacy Firefox */
+
+  display: inline-block;
+}
+
+
