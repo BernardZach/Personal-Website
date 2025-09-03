@@ -12,6 +12,8 @@
   --highlight: var(--pink-lavender);
   --midtone: var(--african-violet);
   --shadow: var(--russian-violet);
+
+  --divider-gap: 6px;
 }
 
 /* tiled GIF background */
@@ -42,6 +44,14 @@ body.tiled-bg {
   :root {
     --tile-url: url('./assets/large-sword.gif');
   }
+}
+
+/* ==== Shared shell so header + columns are same width & centered ========= */
+.site-shell {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 /* === Title styles === */
@@ -117,79 +127,150 @@ body.tiled-bg {
   display: inline-block;
 }
 
+/* ==== Header row (chunky / Y2K gloss) ==================================== */
 .header-row {
-  margin: auto;
-  background-color: #010812;
-  border: 2px solid #231942;
-  width: 600px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: linear-gradient(180deg, #0b0f1e 0%, var(--ink) 60%);
+  border: var(--border) solid var(--russian-violet);
+  border-bottom: 0;
+  margin-bottom: 0;
   text-align: center;
-
-  display: flex; /* Flexbox layout */
-  justify-content: space-evenly; /* Even spacing */
-  align-items: center; /* Vertical alignment */
-  padding: 10px;
+  padding: 14px 10px; /* reduced height */
+  min-height: 60px;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.35) inset,
+    0 1px 0 rgba(255, 255, 255, 0.05) inset;
 }
 
 .header-tab {
-  flex: 1; /* Each tab takes equal width */
-  margin: 0 5px; /* Small spacing between tabs */
-  padding: 10px;
-  background-color: #010812; /* Default tab color */
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px 12px;
+  height: 30px;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(0, 0, 0, 0.25)
+    ),
+    var(--ink);
+  border: 1px solid var(--african-violet);
+  border-radius: 8px;
+  color: #ccc4e4;
   cursor: pointer;
-  text-align: center;
-  transition: background 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  text-shadow: 0 1px 0 #000;
+  transition: transform 0.08s ease, box-shadow 0.15s ease, background 0.2s ease;
 }
 
 .header-tab:hover {
-  background-color: #9f86c0; /* Hover highlight */
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(0, 0, 0, 0.25)
+    ),
+    #0f1030;
+  box-shadow: 0 0 0 2px var(--ultra-violet) inset,
+    0 0 12px rgba(159, 134, 192, 0.35);
 }
 
 .header-tab.active {
-  background-color: #231942; /* Selected tab color */
-  color: #fff; /* Text contrast */
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.14),
+      rgba(0, 0, 0, 0.3)
+    ),
+    var(--russian-violet);
+  color: #fff;
+  box-shadow: 0 0 0 2px var(--lilac) inset, 0 0 18px rgba(190, 149, 196, 0.4);
 }
 
-.header-element {
-  margin: 0;
-  color: #ccc4e4;
-}
-
-/* Container for the three columns */
+/* ==== Menu columns (same width as header, no vertical gap) =============== */
 .menu-columns {
   display: flex;
-  justify-content: space-between;   /* spread evenly */
-  align-items: stretch;             /* make equal height if content differs */
-  background-color: #9f86c0;
-  max-width: 900px;
-  margin: 20px auto;
-  gap: 12px;                        /* space between columns */
+  gap: 10px;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.03),
+      rgba(0, 0, 0, 0.35)
+    ),
+    #0a0e1a;
+  border: var(--border) solid var(--russian-violet);
+  border-top: 0;
+  margin-top: 0;
+  padding: 10px;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.05) inset;
 }
 
-/* Shared column styles */
-.menu-columns > div {
-  flex: 1;                          /* equal width */
-  background-color: #010812;
-  border: 2px solid #231942;
-  color: #ccc4e4;
-  padding: 16px;
-  text-align: center;
-  transition: background 0.3s;
+/* Columns — tweak basis if you want different proportions */
+.menu-column {
+  flex: 1 1 0;
+  min-width: 0;
 }
 
-/* Hover + active effect (like your tabs) */
-.menu-columns > div:hover {
-  background-color: #9f86c0;
-  color: #fff;
+/* Keep your named hooks */
+.left-menu-column {
+  flex: 0 0 20%;
+}
+.middle-menu-column {
+  flex: 0 0 60%;
+}
+.right-menu-column {
+  flex: 0 0 20%;
 }
 
-.menu-columns > div.active {
-  background-color: #231942;
-  color: #fff;
+/* Panels inside columns (chunky border + subtle plastic gloss) */
+.panel {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(0, 0, 0, 0.25)
+    ),
+    #0d1326;
+  border: 2px solid var(--ultra-violet);
+  border-radius: var(--radius);
+  padding: 12px;
+  color: #e5e0f1;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(94, 84, 142, 0.25) inset;
 }
 
-/* Optional: make it responsive */
-@media (max-width: 768px) {
+/* Utility: pixel-ish crisp edges for images/icons */
+img.pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Small screens: keep the vibe but stack cleanly */
+@media (max-width: 700px) {
+  :root {
+    --shell-width: 100%;
+  }
+  .header-tab {
+    font-size: 0.9rem;
+    padding: 10px 8px;
+  }
   .menu-columns {
     flex-direction: column;
   }
+}
+
+/* Sword divider — absolute overlay */
+.sword-divider {
+  position: absolute;
+  top: calc(100% - 300px);  /* lift sword upward */
+  left: 50%;
+  transform: translateX(-70%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.sword-divider .sword-img {
+  width: 150%;   /* make sword 200% larger */
+  max-width: none; /* prevent auto-shrinking */
+  height: auto;
+  image-rendering: pixelated;
 }
