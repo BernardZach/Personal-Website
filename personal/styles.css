@@ -14,6 +14,9 @@
   --shadow: var(--russian-violet);
 
   --divider-gap: 6px;
+
+  --sword-scale: .55; /* desktop size: 2× the shell width of the seam */
+  --sword-y: -125%; /* how much it overlaps upward; tweak to taste */
 }
 
 /* tiled GIF background */
@@ -64,6 +67,8 @@ body.tiled-bg {
 .title-banner h1 {
   margin: 0; /* remove default h1 margin */
   padding: 10px 0; /* optional: add smaller padding instead */
+    position: relative;  /* create stacking context */
+  z-index: 5;          /* ensures it sits above sword */
 }
 
 /* === Pixelated Fantasy Title Upgrade === */
@@ -139,8 +144,7 @@ body.tiled-bg {
   text-align: center;
   padding: 14px 10px; /* reduced height */
   min-height: 60px;
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.35) inset,
-    0 1px 0 rgba(255, 255, 255, 0.05) inset;
+
 }
 
 .header-tab {
@@ -188,9 +192,13 @@ body.tiled-bg {
 }
 
 /* ==== Menu columns (same width as header, no vertical gap) =============== */
-.menu-columns {
+
+
+
+/* ==== Menu columns (boxed & even with gaps) =============================== */
+.menu-columns{
   display: flex;
-  gap: 10px;
+  gap: var(--col-gap, 10px); /* use a var so it's easy to tweak */
   background: linear-gradient(
       180deg,
       rgba(255, 255, 255, 0.03),
@@ -201,25 +209,17 @@ body.tiled-bg {
   border-top: 0;
   margin-top: 0;
   padding: 10px;
-  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.05) inset;
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,.05);
 }
 
-/* Columns — tweak basis if you want different proportions */
-.menu-column {
-  flex: 1 1 0;
-  min-width: 0;
-}
+/* Let flex do the math; min-width:0 prevents content from forcing overflow */
+.menu-column{ flex: 1 1 0; min-width: 0; }
 
-/* Keep your named hooks */
-.left-menu-column {
-  flex: 0 0 20%;
-}
-.middle-menu-column {
-  flex: 0 0 60%;
-}
-.right-menu-column {
-  flex: 0 0 20%;
-}
+/* Weights instead of fixed percentages, so gaps don’t push you past 100% */
+.left-menu-column   { flex: 1 1 0; }  /* ~25% of available space */
+.middle-menu-column { flex: 2 1 0; }  /* ~50% */
+.right-menu-column  { flex: 1 1 0; }  /* ~25% */
+
 
 /* Panels inside columns (chunky border + subtle plastic gloss) */
 .panel {
@@ -248,6 +248,8 @@ img.pixelated {
 @media (max-width: 700px) {
   :root {
     --shell-width: 100%;
+    --sword-scale: 1.1; /* keep it readable but contained */
+    --sword-y: -150%; /* adjust vertical overlap on small screens */
   }
   .header-tab {
     font-size: 0.9rem;
@@ -260,17 +262,21 @@ img.pixelated {
 
 /* Sword divider — absolute overlay */
 .sword-divider {
-  position: absolute;
-  top: calc(100% - 300px);  /* lift sword upward */
-  left: 50%;
-  transform: translateX(-70%);
+  position: relative; /* becomes the positioning context */
+  height: 0; /* no extra vertical space */
   z-index: 10;
-  pointer-events: none;
+    z-index: -1;              /* put sword behind title */
+
+  pointer-events: none; /* purely decorative */
 }
 
 .sword-divider .sword-img {
-  width: 150%;   /* make sword 200% larger */
-  max-width: none; /* prevent auto-shrinking */
+  position: absolute;
+  top: 0; /* align to the seam */
+  left: 50%;
+  transform: translate(-50%, var(--sword-y));
+  width: clamp(260px, calc(100% * var(--sword-scale)), 1400px);
+  max-width: none;
   height: auto;
   image-rendering: pixelated;
 }
