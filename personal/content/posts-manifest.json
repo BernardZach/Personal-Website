@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "changelog-2026-03",
+    "title": "Site Changelog: 2026-03",
+    "date": "2026-03-12",
+    "tag": "updates",
+    "summary": "Layout, content, and markdown publishing updates for the indie site.",
+    "href": "./posts/changelog-2026-03.html"
+  },
+  {
+    "slug": "currently-playing-and-building",
+    "title": "Currently Playing + Building",
+    "date": "2026-03-12",
+    "tag": "now",
+    "summary": "A snapshot of what I’m playing, building, and reading this month.",
+    "href": "./posts/currently-playing-and-building.html"
+  },
+  {
+    "slug": "welcome-to-the-corner",
+    "title": "Welcome to the Corner",
+    "date": "2026-03-12",
+    "tag": "intro",
+    "summary": "Why this indie corner exists and what kinds of posts live here.",
+    "href": "./posts/welcome-to-the-corner.html"
+  }
+]

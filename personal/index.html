@@ -17,16 +17,16 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body class="tiled-bg">
-    
+
     <header class="title-banner">
       <h1 class="fantasy-title pixelated">Archypelago's Corner</h1>
     </header>
     <div class="site-shell">
       <div class="header-row">
-        <div class="header-tab active">Home</div>
-        <div class="header-tab">Projects</div>
-        <div class="header-tab">Contact</div>
-        <div class="header-tab">Contact</div>
+        <a class="header-tab active" href="./index.html">Home</a>
+        <a class="header-tab" href="#recent-posts">Blog</a>
+        <a class="header-tab" href="#site-map">Site Map</a>
+        <a class="header-tab" href="mailto:bernardzach00@gmail.com">Contact</a>
       </div>
 
       <!-- Sword Divider -->
@@ -40,15 +40,91 @@
 
       <div class="menu-columns">
         <div class="menu-column left-menu-column">
-          <div class="panel">Left stuff</div>
-          <div class="panel">Links</div>
+          <section class="panel">
+            <h2 class="panel-title">About This Corner</h2>
+            <p>
+              This is my indie side of the internet: dev logs, weird experiments,
+              media notes, and little web toys.
+            </p>
+            <p class="mini-note">Built with plain HTML/CSS/JS for old-web vibes.</p>
+          </section>
+
+          <section class="panel" id="site-map">
+            <h2 class="panel-title">Site Map</h2>
+            <ul class="link-list">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="#recent-posts">Recent Posts</a></li>
+              <li><a href="./posts/">Post Archive</a></li>
+            </ul>
+            <ul class="link-list" id="siteMapPosts">
+              <li class="mini-note">Run indie publish to refresh post links.</li>
+            </ul>
+          </section>
+
+          <section class="panel">
+            <h2 class="panel-title">Cool Links</h2>
+            <ul class="link-list">
+              <li><a href="https://neocities.org" target="_blank" rel="noopener">Neocities</a></li>
+              <li><a href="https://wiby.me" target="_blank" rel="noopener">Wiby Search</a></li>
+              <li><a href="https://32bit.cafe" target="_blank" rel="noopener">32-Bit Cafe</a></li>
+            </ul>
+          </section>
         </div>
         <div class="menu-column middle-menu-column">
-          <div class="panel">Main content</div>
+          <section class="panel hero-panel">
+            <h2 class="panel-title">Welcome Traveler</h2>
+            <p>
+              You found my non-professional web hideout. This section is completely
+              separate from my portfolio and has its own posts and projects.
+            </p>
+            <p>
+              Expect monthly logs, half-finished game ideas, music notes, and odd
+              experiments that do not fit anywhere else.
+            </p>
+          </section>
+
+          <section class="panel" id="recent-posts">
+            <h2 class="panel-title">Recent Posts</h2>
+            <div class="post-list" id="recentPostsList">
+              <article class="post-item">
+                <h3>Posts are loading...</h3>
+              </article>
+            </div>
+          </section>
+
+          <section class="panel">
+            <h2 class="panel-title">Mini Log</h2>
+            <ul class="micro-list">
+              <li>Set up a dedicated indie-only post folder.</li>
+              <li>Building a compact retro three-column homepage.</li>
+              <li>Next up: tiny art gallery and guestbook page.</li>
+            </ul>
+          </section>
         </div>
         <div class="menu-column right-menu-column">
-          <div class="panel">Widgets</div>
-          <div class="panel">Chat</div>
+          <section class="panel">
+            <h2 class="panel-title">Status</h2>
+            <p><strong>Mood:</strong> <span id="statusMood">Building in public</span></p>
+            <p><strong>Last Visit:</strong> <span id="lastVisit">First time here.</span></p>
+            <p><strong>Visits:</strong> <span id="visitCount">0</span></p>
+          </section>
+
+          <section class="panel">
+            <h2 class="panel-title">Background Picker</h2>
+            <label for="bgSelect" class="mini-note">Theme</label>
+            <select id="bgSelect" class="bg-select">
+              <option value="nightSkyAnimatedBG.gif">Night Sky</option>
+              <option value="nightSkyCloudsAnimatedBG.gif">Cloudy Night</option>
+              <option value="pinkCloudsAnimatedBG.gif">Pink Clouds</option>
+            </select>
+            <button id="randomBgBtn" class="retro-btn" type="button">Randomize</button>
+          </section>
+
+          <section class="panel">
+            <h2 class="panel-title">Guestbook (Soon)</h2>
+            <p>Until the guestbook is live, email me your message.</p>
+            <p><a href="mailto:bernardzach00@gmail.com?subject=Guestbook%20message">Send a note</a></p>
+          </section>
         </div>
       </div>
     </div>

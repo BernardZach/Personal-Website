@@ -2,7 +2,10 @@
   "name": "zach-bernard-personal-website",
   "version": "1.0.0",
   "scripts": {
-    "build": "vite build" 
+    "build": "vite build",
+    "indie:new": "node scripts/create-indie-post.mjs",
+    "indie:publish": "node scripts/generate-indie-posts.mjs",
+    "indie:publish:watch": "node --watch scripts/generate-indie-posts.mjs"
   },
   "dependencies": {
     "three": "^0.166.0"
